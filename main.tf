@@ -100,10 +100,18 @@ resource "aws_transfer_user" "agency_user" {
   user_name     = each.key
   server_id     = aws_transfer_server.sftp_server.id
   role          = aws_iam_role.transfer_role.arn
-  home_directory = "/${each.key}"
 
-  # home_directory_mappings {
-  #   entry  = "/${each.key}"
-  #   target = "/s3://${aws_s3_bucket_versioning.agency_bucket.bucket}/${each.key}"
-  # }
+  home_directory_type = "LOGICAL"
+  home_directory_mappings {
+    entry  = "/test.pdf"
+    target = "/bucket3/test-path/${each.key}.pdf"
+  }
 }
+
+resource "aws_transfer_ssh_key" "example" {
+  for_each = var.agencies
+  server_id = aws_transfer_server.sftp_server.id
+  user_name = each.key
+  body      = each.value.ssh_public_key
+}
+
