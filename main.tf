@@ -103,8 +103,8 @@ resource "aws_transfer_user" "agency_user" {
 
   home_directory_type = "LOGICAL"
   home_directory_mappings {
-    entry  = "/test.pdf"
-    target = "/bucket3/test-path/${each.key}.pdf"
+    entry  = "/${each.key}"
+    target = "/${aws_s3_bucket_versioning.agency_bucket.bucket}/${each.key}"
   }
 }
 
