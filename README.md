@@ -28,9 +28,11 @@ To get started with this project, follow these steps:
    - Install Terraform (version 0.12 or higher) on your local machine.
 
 2. Setup AWS Credentials**:
+   
    - Ensure your AWS credentials are configured either through environment variables or AWS CLI configuration.
 
-3. **Clone the Repository**:
+4. **Clone the Repository**:
+   
    - git clone https://github.com/your/repository.git
    - cd repository-directory
 
@@ -46,3 +48,7 @@ To get started with this project, follow these steps:
 6.Accessing the SFTP Endpoint:
 
   - Once deployed, you will receive the SFTP server hostname (e.g., s-51c4b380aa6a4d12a.server.transfer.eu-west-1.amazonaws.com). Use        this hostname to configure your SFTP client for file uploads.
+
+7.After Connecting to SFTP Endpoint from MobXterm or WINSCP:
+
+  - When uploading files from local to remote s3 bucket entry path would be "{/username}" provided in terraform.tfvars files (Ex:- /agency1/example.json)
