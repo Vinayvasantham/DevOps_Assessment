@@ -36,7 +36,7 @@ To get started with this project, follow these steps:
 
 4.Configure Terraform Variables:
 
-  - Copy terraform.tfvars.example to terraform.tfvars and update the variables with your specific values.
+  - Copy terraform.tfvars.example to terraform.tfvars and update the variables with your specific values (SSH_PUBLIC_KEY and EMAIL)
     
 5.Deploy Infrastructure:
 
